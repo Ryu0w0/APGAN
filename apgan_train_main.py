@@ -15,29 +15,37 @@ def initialization():
 
     # GENERAL
     parser = argparse.ArgumentParser()
-    parser.add_argument("-use_gpu", type=int, default=1)
-    parser.add_argument("-is_reproducible", type=int, default=0)
+    parser.add_argument("-use_gpu", type=int, default=1, help="Set 1 if using GPU")
+    parser.add_argument("-is_reproducible", type=int, default=0,
+                        elp="Set 1 if weight and order of images are assumed to be fixed.")
     parser.add_argument("-save_key", type=str, default="apgan",
-                        help="Used as a file name of dataset and log files")
-    parser.add_argument("-save_root_path", type=str, default="./files/output/gans")
-    parser.add_argument("-num_fixed_noise", type=int, default=16)
+                        help="Used as the name of outputted files like log files and *.ptn")
+    parser.add_argument("-save_root_path", type=str, default="./files/output/gans",
+                        help="Specify the location where output files are produced.")
+    parser.add_argument("-num_fixed_noise", type=int, default=16,
+                        help="Specify the number of noises used to produce sample synthetic images.")
     parser.add_argument("-log_level", type=str, default="INFO")
     # MODEL and LOSS
-    parser.add_argument("-load_config_key", type=str, default="default_ch3", help="json config file name")
-    parser.add_argument("-config_root_path", type=str, default="./gans/model/apgan/config/")
+    parser.add_argument("-load_config_key", type=str, default="default_ch3",
+                        help="name of json config file for model and optimiser name")
+    parser.add_argument("-config_root_path", type=str, default="./gans/model/apgan/config/",
+                        help="Location of the config file.")
     parser.add_argument("-loss_f_type", type=str, default="wgan_gp",
                         help="bce, hinge or wgan_gp")
     # LOGGING PER X ITERATION
-    parser.add_argument("-logging_per_iter", type=int, default=1)
-    parser.add_argument("-save_img_per_iter", type=int, default=5)
-    parser.add_argument("-save_model_per_iter", type=int, default=5)
+    parser.add_argument("-logging_per_iter", type=int, default=1, help="Specify how frequently do logging.")
+    parser.add_argument("-save_img_per_iter", type=int, default=5,
+                        help="Specify how frequently produce sample synthetic images at the moment while training.")
+    parser.add_argument("-save_model_per_iter", type=int, default=5,
+                        help="Specify how frequently produce models as *.ptn while training.")
     # TRAINING
-    parser.add_argument("-step_from", type=int, default=0, help="steps run for range($step_from, $num_steps + 1)")
-    parser.add_argument("-num_steps", type=int, default=6, help="used such that train from 0 to $num_steps")
+    parser.add_argument("-step_from", type=int, default=0, help="Specified 0")
+    parser.add_argument("-num_steps", type=int, default=6,
+                        help="Number of stages in the growing structure. Target resolution = 4 * 2 ** $num_steps")
     parser.add_argument("-num_img_iter", type=int, default=1,
-                        help="number of iteration per step training for a specific resolution")
-    parser.add_argument("-batch_size_list", type=str, default="256,256,128,64,32,16,8",
-                        help="batch_size from 0 to Nth step")  # "256,256,128,64,32,16,8"
+                        help="number of iteration per step for a specific resolution")
+    parser.add_argument("-batch_size_list", type=str, default="256,128,128,64,16,8,4",
+                        help="batch_size from 0 to Nth step")
     parser.add_argument("-num_workers", type=int, default=1)
     args = parser.parse_args()
 
