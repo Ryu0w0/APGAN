@@ -1,5 +1,5 @@
 # Attention Progressive growing of GAN
-A PyTorch implementation of APGAN. It is runnable with CelebA dataset. It would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
+A PyTorch implementation of Attention Progressive growing of GAN (APGAN). It is runnable with CelebA dataset. It would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
 # Description
 ## APGAN
 This model was proposed by Ali, Mohamed and Mahdy (2019). APGAN incorporates techniques from PGAN (Karras et al., 2018) and SAGAN (Zhang et al., 2019) as below;
