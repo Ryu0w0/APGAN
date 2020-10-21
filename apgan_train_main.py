@@ -45,8 +45,8 @@ def initialization():
                         help="Number of stages in the growing structure. Target resolution = 4 * 2 ** $num_steps")
     parser.add_argument("-num_img_iter", type=int, default=1,
                         help="number of iteration per step for a specific resolution")
-    parser.add_argument("-batch_size_list", type=str, default="256,128,128,64,16,8,4",
-                        help="batch_size from 0 to Nth step")
+    parser.add_argument("-batch_size_list", type=str, default="256,128,128,64,16,4,2",
+                        help="batch_size from 0 to Nth step. Please modify according to the available memory.")
     parser.add_argument("-num_workers", type=int, default=1)
     args = parser.parse_args()
 

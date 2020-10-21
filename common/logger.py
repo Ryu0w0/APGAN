@@ -70,23 +70,6 @@ def get_log_level_from_name(log_level_name):
         assert False, f"Log level is either INFO or DEBUG"
 
 
-def report_dataset_size(train_ds, val_ds):
-    train_count = {"0": 0, "1": 0}
-    valid_count = {"0": 0, "1": 0}
-    train_num_gt_256 = {"0": 0, "1": 0}
-    valid_num_gt_256 = {"0": 0, "1": 0}
-    for e in train_ds.examples:
-        train_count[e.Label] += 1
-        train_num_gt_256[e.Label] += 1 if len(e.Text) > 256 else 0
-    for e in val_ds.examples:
-        valid_count[e.Label] += 1
-        valid_num_gt_256[e.Label] += 1 if len(e.Text) > 256 else 0
-    logger_.info(f"train num: {len(train_ds)}, neg_num: {train_count['0']}, pos_num: {train_count['1']}, "
-                 f"neg_gt_256: {train_num_gt_256['0']}, pos_gt_256: {train_num_gt_256['1']}")
-    logger_.info(f"valid num: {len(val_ds)}, neg_num: {valid_count['0']}, pos_num: {valid_count['1']}, "
-                 f"neg_gt_256: {valid_num_gt_256['0']}, pos_gt_256: {valid_num_gt_256['1']}")
-
-
 def get_cur_datetime():
     dt_now = datetime.datetime.now()
     simple_form = dt_now.strftime("%Y%m%d_%H%M%S")
