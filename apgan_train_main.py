@@ -33,8 +33,8 @@ def initialization():
     parser.add_argument("-loss_f_type", type=str, default="wgan_gp",
                         help="bce, hinge or wgan_gp")
     # LOGGING PER X ITERATION
-    parser.add_argument("-logging_per_iter", type=int, default=1, help="Specify how frequently do logging.")
-    parser.add_argument("-save_img_per_iter", type=int, default=1,
+    parser.add_argument("-logging_per_iter", type=int, default=100, help="Specify how frequently do logging.")
+    parser.add_argument("-save_img_per_iter", type=int, default=3000,
                         help="Specify how frequently produce sample synthetic images at the moment while training.")
     parser.add_argument("-save_model_per_iter", type=int, default=-1,
                         help="Specify how frequently produce models as *.ptn while training."
@@ -43,11 +43,11 @@ def initialization():
     parser.add_argument("-step_from", type=int, default=0, help="Specified 0")
     parser.add_argument("-num_steps", type=int, default=6,
                         help="Number of stages in the growing structure. Target resolution = 4 * 2 ** $num_steps")
-    parser.add_argument("-num_img_iter", type=int, default=1,
+    parser.add_argument("-num_img_iter", type=int, default=600000,
                         help="number of iteration per step for a specific resolution")
     parser.add_argument("-batch_size_list", type=str, default="256,128,128,64,16,4,2",
                         help="batch_size from 0 to Nth step. Please modify according to the available memory.")
-    parser.add_argument("-num_workers", type=int, default=1)
+    parser.add_argument("-num_workers", type=int, default=4)
     args = parser.parse_args()
 
     # convert batch_size list into a list
