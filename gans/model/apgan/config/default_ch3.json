@@ -1,0 +1,33 @@
+{
+  "g": {
+    "latent_space_size" : 100,
+    "feat_depth": 512,
+    "use_equalize": true,
+    "use_pixel_norm": true,
+    "attention_pos_idx": 5,
+    "num_ch": 3,
+    "opt": {
+      "type": "adam",
+      "lr": 0.001,
+      "betas": [
+        0.0,
+        0.999
+      ]
+    }
+  },
+  "d": {
+    "feat_depth": 512,
+    "use_std_layer": true,
+    "use_equalize": true,
+    "attention_pos_idx": 5,
+    "num_ch": 3,
+    "opt": {
+      "type": "adam",
+      "lr": 0.001,
+      "betas": [
+        0.0,
+        0.999
+      ]
+    }
+  }
+}
