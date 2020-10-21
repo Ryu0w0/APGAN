@@ -131,7 +131,7 @@ def main():
     gan.train(step_from=args.step_from, num_steps=args.num_steps)
 
     # Save model
-    # logger_.info("*** SAVE WEIGHTS ***")
+    logger_.info("*** SAVE WEIGHTS ***")
     gan.save_model()
     logger_.info("FINISH.")
     exit(0)
