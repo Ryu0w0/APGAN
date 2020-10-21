@@ -1,5 +1,5 @@
 # Attention Progressive growing of GAN
-A PyTorch implementation of APGAN based on CelebA dataset. It is runnable with CelebA dataset. It would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
+A PyTorch implementation of APGAN. It is runnable with CelebA dataset. It would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
 # Description
 ## APGAN
 This model was proposed by Ali, Mohamed and Mahdy (2019). APGAN incorporates techniques from PGAN (Karras et al., 2018) and SAGAN (Zhang et al., 2019) as below;
@@ -31,18 +31,18 @@ Zhang, H. et al. (2019) ‘Self-attention generative adversarial networks’, 36
 
 - Synthetic images
     - Location: ./apgan/files/output/gans/images
-    - Real and synthetic images are periodically produced here while training for monitoring the changes of the appearance of images
+    - Synthetic images are periodically produced from a generator at the moment while training for monitoring the changes of the appearance of images
 - Text-based Log files
     - Location: ./files/output/gans/logs
 - TensorBoard-based log files
     - ./files/output/gans/board
-    - Losses in G and D are periodically produced for monitoring
+    - Losses in G and D at the moment are periodically produced for monitoring
 - Weights of generator
     - ./files/output/gans/model
     - Weights of generator is produced as *.ptn file
     
 ## Configuration
-There are 2 locations to configure to specify the behavior of APGAN.
+There are 2 locations for the configuration to specify the behavior of APGAN.
 ### JSON file 
 Location: ./gans/model/apgan/config/default_ch3.json
 
