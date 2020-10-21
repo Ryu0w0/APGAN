@@ -17,7 +17,7 @@ def initialization():
     parser = argparse.ArgumentParser()
     parser.add_argument("-use_gpu", type=int, default=1, help="Set 1 if using GPU")
     parser.add_argument("-is_reproducible", type=int, default=0,
-                        elp="Set 1 if weight and order of images are assumed to be fixed.")
+                        help="Set 1 if weight and order of images are assumed to be fixed.")
     parser.add_argument("-save_key", type=str, default="apgan",
                         help="Used as the name of outputted files like log files and *.ptn")
     parser.add_argument("-save_root_path", type=str, default="./files/output/gans",
