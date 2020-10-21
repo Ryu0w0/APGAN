@@ -1,0 +1,5 @@
+*.pyc
+/files/input/dataset/img_align_celeba/*
+/files/load/*/*
+/files/output/*/*
+.idea
