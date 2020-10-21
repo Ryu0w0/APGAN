@@ -34,10 +34,11 @@ def initialization():
                         help="bce, hinge or wgan_gp")
     # LOGGING PER X ITERATION
     parser.add_argument("-logging_per_iter", type=int, default=1, help="Specify how frequently do logging.")
-    parser.add_argument("-save_img_per_iter", type=int, default=5,
+    parser.add_argument("-save_img_per_iter", type=int, default=1,
                         help="Specify how frequently produce sample synthetic images at the moment while training.")
-    parser.add_argument("-save_model_per_iter", type=int, default=5,
-                        help="Specify how frequently produce models as *.ptn while training.")
+    parser.add_argument("-save_model_per_iter", type=int, default=-1,
+                        help="Specify how frequently produce models as *.ptn while training."
+                             "Specify -1 if training without saving a model.")
     # TRAINING
     parser.add_argument("-step_from", type=int, default=0, help="Specified 0")
     parser.add_argument("-num_steps", type=int, default=6,
