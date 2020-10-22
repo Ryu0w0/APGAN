@@ -1,5 +1,5 @@
 # Attention Progressive growing of GAN
-A PyTorch implementation of Attention Progressive growing of GAN (APGAN). It is runnable with CelebA dataset. It would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
+A PyTorch implementation of Attention Progressive growing of GAN (APGAN). It is runnable with CelebA dataset. This repository would be helpful for those seeking the implementation of Progressive GAN (PGAN) or Self-Attention GAN (SAGAN).
 # Description
 ## APGAN
 This model was proposed by Ali, Mohamed and Mahdy (2019). APGAN incorporates techniques from PGAN (Karras et al., 2018) and SAGAN (Zhang et al., 2019) as below;
@@ -22,7 +22,7 @@ Zhang, H. et al. (2019) ‘Self-attention generative adversarial networks’, 36
 
 ## Structure
 
-The fully grown structure of generator and discriminator developed in this repository is below. The generator produces 256x256 synthetic images and the discriminator accepts 256x256 real or synthetic images. A self-attention module is attached in the block of resolution of 128x128 denoted as the orange layer. Standard deviation-based feature map is concatinated in the last block in the discriminator denoted as the green layer.
+The structure of APGAN is progressively growing as the training goes. The figure shown below is the maximum size (fully grown) of the structure that the generator produces 256x256 synthetic images and the discriminator accepts 256x256 real or synthetic images. A self-attention module is attached in the block of resolution of 128x128 denoted as the orange layer. Standard deviation-based feature map is concatinated in the last block in the discriminator denoted as the green layer.
 
 <img src="https://github.com/Ryu0w0/meta_repository/blob/master/APGAN/images/structure.PNG" width=60%>
 
