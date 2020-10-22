@@ -20,6 +20,12 @@ Karras, T. et al. (2018) ‘Progressive growing of GANs for improved quality, st
 
 Zhang, H. et al. (2019) ‘Self-attention generative adversarial networks’, 36th International Conference on Machine Learning, ICML 2019, 2019-June, pp. 12744–12753.
 
+## Structure
+
+The fully grown structure of generator and discriminator developed in this repository is below. The generator produces 256x256 synthetic images and the discriminator accepts 256x256 real or synthetic images. A self-attention module is attached in the block of resolution of 128x128 denoted as the orange layer. Standard deviation-based feature map is concatinated in the last block in the discriminator denoted as the green layer.
+
+<img src="https://github.com/Ryu0w0/meta_repository/blob/master/APGAN/images/structure.PNG" width=60%>
+
 ## How to run
 
 1. Clone the repository to the local.
@@ -27,20 +33,6 @@ Zhang, H. et al. (2019) ‘Self-attention generative adversarial networks’, 36
 3. Unzip the obtained zip file and locate it such that ./files/input/dataset/img_align_celeba/*.jpg
 4. Call "python ./apgan_train_main.py"
 
-## Outputs
-
-- Synthetic images
-    - Location: ./apgan/files/output/gans/images
-    - Synthetic images are periodically produced from a generator at the moment while training for monitoring the changes of the appearance of images
-- Text-based Log files
-    - Location: ./files/output/gans/logs
-- TensorBoard-based log files
-    - ./files/output/gans/board
-    - Losses in G and D at the moment are periodically produced for monitoring
-- Weights of generator
-    - ./files/output/gans/model
-    - Weights of generator is produced as *.ptn file
-    
 ## Configuration
 There are 2 locations for the configuration to specify the behavior of APGAN.
 ### JSON file 
@@ -58,3 +50,17 @@ At the head of scripts in apgan_train_main.py, there are arguments of the progra
 
 Most of the parameters can be used with default, whereas `batch_size_list` should be modify according to the available computational resource.
  
+## Outputs
+- Synthetic images
+    - Location: ./apgan/files/output/gans/images
+    - Synthetic images are periodically produced from a generator at the moment while training for monitoring the changes of the appearance of images.
+    - Examples of the synthetic images produced by APGAN when speficying 600000 iter per stage (It was actually not enough to produce high quality images): <img src="https://github.com/Ryu0w0/meta_repository/blob/master/APGAN/images/fake.jpg" width=60%>
+- Text-based Log files
+    - Location: ./files/output/gans/logs
+- TensorBoard-based log files
+    - ./files/output/gans/board
+    - Losses in G and D at the moment are periodically produced for monitoring
+- Weights of generator
+    - ./files/output/gans/model
+    - Weights of generator is produced as *.ptn file
+    
